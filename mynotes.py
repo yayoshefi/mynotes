@@ -1,4 +1,4 @@
-#!/common/pkgs/python/3.6.1/bin/python3 
+#!/usr/bin/python3
 """
 
 WRITTEN BY SHEFI 15.4.18
@@ -13,7 +13,7 @@ import math
 import json
 from colorama import Fore, Back, Style
 from string import Template
-
+MYNOTES_DIR =os.environ.get('MYNOTES_DIR', os.environ.get("HOME")+'/MYNOTES')
 
 # ====================================================================================================================
 if __name__ == '__main__':
@@ -36,7 +36,7 @@ if __name__ == '__main__':
     if (args.debug):  print ("Passed arguments = {0}".format(args))
     edit = True if (args.remove != None or args.add or args.addtask or args.edit or args.archive) else  False
 
-    notes = json.load(open(os.environ.get("HOME")+'/MYNOTES/my_notes.json','r'))
+    notes = json.load(open(MYNOTES_DIR + '/my_notes.json','r'))
 
     if args.list_name == ['*'] : ls_name = list(notes.keys())
     else: ls_name = args.list_name
@@ -45,7 +45,7 @@ if __name__ == '__main__':
 
     if args.new_list:
         notes[args.new_list] = {'tasks':[],'notes':[],'edit_time':''}
-        json.dump(notes,open(os.environ.get("HOME")+'/MYNOTES/my_notes.json','w'),indent=2)
+        json.dump(notes,open(MYNOTES_DIR+'/my_notes.json','w'),indent=2)
 
 # ====================================
 # =========== EDIT LISTS =============
@@ -130,7 +130,7 @@ if __name__ == '__main__':
 
                     # Saving json file after each changed list
                     notes[ls_nm]['edit_time'] = time.asctime( time.localtime(time.time()) )
-            if ls_nm: json.dump(notes,open(os.environ.get("HOME")+'/MYNOTES/my_notes.json','w'),indent=2)
+            if ls_nm: json.dump(notes,open(MYNOTES_DIR+'/my_notes.json','w'),indent=2)
         if not ls_nm:
             print ("Error list name not found in dict"); sys.exit(1)
     elif args.debug: print ("NO EDIT")
