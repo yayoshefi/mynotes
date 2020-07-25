@@ -28,8 +28,11 @@ How to Start:
 
 Recomended Alias:
 =================
+I use these alias in my bashrc for easier use
+```
+
 if (! $?MYNOTES_LIST ) then  
-  setenv MYNOTES_LIST     "UserName" ; #Defalut list
+  setenv MYNOTES_LIST     "$USER" ; #Defalut list
 endif
 
 alias addnote            '$MYNOTES_DIR/mynotes.py -l $MYNOTES_LIST --add  \!*'
@@ -40,6 +43,7 @@ alias edinote            '$MYNOTES_DIR/mynotes.py -l $MYNOTES_LIST --edit  \!* '
 alias archnote           '$MYNOTES_DIR/mynotes.py -l $MYNOTES_LIST --archive  \!* '
 alias notes_all          'clear ; $MYNOTES_DIR/mynotes.py --show -l "*" \!* '
 alias notes              '$MYNOTES_DIR/mynotes.py --show  -l $MYNOTES_LIST \!* '
+```
 
 Future Updates:
 ===============
