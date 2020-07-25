@@ -19,7 +19,8 @@ my_notes.json    DataBase
 
 How to Start:
 =============
-1) save the mynotes.py script and the template empty version of my_notes.json under ~/MYNOTES/
+1) Clone this repo (mynotes.py and empty template of ntes in my_notes.json)
+    1) clone the repo to ~/MYNOTES/ or set `$MYNOTES_DIR` to the directory you cloned to
 2) create a new list by running 
    $mynotes.py --new_list ListName
 3) use the -h option to see all optioanl arguments (add, remove, edit, archive..)
@@ -31,14 +32,14 @@ if (! $?MYNOTES_LIST ) then
   setenv MYNOTES_LIST     "UserName" ; #Defalut list
 endif
 
-alias addnote            '~/mynotes.py -l $MYNOTES_LIST --add  \!*'
-alias addtask            '~/mynotes.py -l $MYNOTES_LIST --addtask  \!*'
-alias rmnote             '~/mynotes.py -l $MYNOTES_LIST --remove  \!* '
-alias rmtask             '~/mynotes.py -l $MYNOTES_LIST --remove 100 '
-alias edinote             '~/mynotes.py -l $MYNOTES_LIST --edit  \!* '
-alias archnote           '~/mynotes.py -l $MYNOTES_LIST --archive  \!* '
-alias notes_all          'clear ; ~/mynotes.py --show -l "*" \!* '
-alias notes              '~/mynotes.py --show  -l $MYNOTES_LIST \!* '
+alias addnote            '$MYNOTES_DIR/mynotes.py -l $MYNOTES_LIST --add  \!*'
+alias addtask            '$MYNOTES_DIRmynotes.py -l $MYNOTES_LIST --addtask  \!*'
+alias rmnote             '$MYNOTES_DIR/mynotes.py -l $MYNOTES_LIST --remove  \!* '
+alias rmtask             '$MYNOTES_DIR/mynotes.py -l $MYNOTES_LIST --remove 100 '
+alias edinote            '$MYNOTES_DIR/mynotes.py -l $MYNOTES_LIST --edit  \!* '
+alias archnote           '$MYNOTES_DIR/mynotes.py -l $MYNOTES_LIST --archive  \!* '
+alias notes_all          'clear ; $MYNOTES_DIR/mynotes.py --show -l "*" \!* '
+alias notes              '$MYNOTES_DIR/mynotes.py --show  -l $MYNOTES_LIST \!* '
 
 Future Updates:
 ===============
